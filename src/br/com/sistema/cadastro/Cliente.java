@@ -18,7 +18,7 @@ public class Cliente {
     private String telefone;
 
     public Cliente(){
-        this.nome = "";
+        this.nome = "Test";
         this.idade = "";
         this.sexo = "";
         this.cpf = "";
