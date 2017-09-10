@@ -7,7 +7,6 @@ package trabalhomdi;
 
 import br.com.sistema.cadastro.Cliente;
 import javax.swing.JDesktopPane;
-import trabalhomdi.Login;
 /**
  *
  * @author comp8
