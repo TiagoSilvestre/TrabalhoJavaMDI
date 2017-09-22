@@ -17,16 +17,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
-        JInternalFrameLogin login = new JInternalFrameLogin();
-        jDesktopPane.add(login);
-        login.show();
+        //JInternalFrameLogin login = new JInternalFrameLogin();
+        //jDesktopPane.add(login);
+        //login.show();
         
         // Centralizar tela de Login
-        int lDesk = jDesktopPane.getWidth();
-        int aDesk = jDesktopPane.getHeight();
-        int lIFrame = login.getWidth();
-        int aIFrame = login.getHeight();
-        login.setLocation( lDesk / 2 - lIFrame / 2, aDesk / 2 - aIFrame / 2 );
+        //int lDesk = jDesktopPane.getWidth();
+        //int aDesk = jDesktopPane.getHeight();
+        //int lIFrame = login.getWidth();
+        //int aIFrame = login.getHeight();
+        //login.setLocation( lDesk / 2 - lIFrame / 2, aDesk / 2 - aIFrame / 2 );
         
         
         //jMenuEmpreendimentos.setEnabled(false);
