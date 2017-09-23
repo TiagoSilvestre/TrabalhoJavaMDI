@@ -11,22 +11,22 @@ package br.com.sistema.cadastro;
  */
 public class Cliente {
     private String nome;
-    private String idade;
+    private String nascimento;
     private String cpf;
     private String endereco;
     private String telefone;
 
     public Cliente(){
-        this.nome = "Test";
-        this.idade = "";
+        this.nome = "";
+        this.nascimento = "";
         this.cpf = "";
         this.endereco = "";
         this.telefone = "";
     }
     
-    public Cliente(String nome, String idade, String cpf, String endereco, String telefone) {
+    public Cliente(String nome, String nascimento, String cpf, String endereco, String telefone) {
         this.nome = nome;
-        this.idade = idade;
+        this.nascimento = nascimento;
         this.cpf = cpf;
         this.endereco = endereco;
         this.telefone = telefone;
@@ -40,12 +40,12 @@ public class Cliente {
         this.nome = nome;
     }
         
-    public String getIdade() {
-        return idade;
+    public String getNascimento() {
+        return nascimento;
     }
 
-    public void setIdade(String idade) {
-        this.idade = idade;
+    public void setNascimento(String nascimento) {
+        this.nascimento = nascimento;
     }
 
     public String getCpf() {
