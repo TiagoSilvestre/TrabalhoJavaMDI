@@ -133,12 +133,21 @@
     <Component class="javax.swing.JTextField" name="jTextFieldNome">
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNascimento">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="try{&#xd;&#xa;   javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter(&quot;##/##/####&quot;);&#xd;&#xa;   jTextFieldNascimento= new javax.swing.JFormattedTextField(data);&#xd;&#xa;}&#xd;&#xa;   catch (Exception e){&#xd;&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldCpf">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try{&#xd;&#xa;   javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter(&quot;###.###.###-##&quot;);&#xd;&#xa;   jTextFieldCpf= new javax.swing.JFormattedTextField(data);&#xd;&#xa;}&#xd;&#xa;   catch (Exception e){&#xd;&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldEndereco">
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldTelefone">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try{&#xd;&#xa;   javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter(&quot;(##)#-####-####&quot;);&#xd;&#xa;   jTextFieldTelefone= new javax.swing.JFormattedTextField(data);&#xd;&#xa;}&#xd;&#xa;   catch (Exception e){&#xd;&#xa;}"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>

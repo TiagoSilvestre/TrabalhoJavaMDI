@@ -22,7 +22,7 @@ public class JInternalFrameClientes extends javax.swing.JInternalFrame {
      */
     public JInternalFrameClientes() {
         initComponents();
-        this.setTitle("Cadastro de Usuario");
+        this.setTitle("Cadastro de Clientes");
     }
 
     /**
@@ -63,6 +63,27 @@ public class JInternalFrameClientes extends javax.swing.JInternalFrame {
         jLabel4.setText("Endereço:");
 
         jLabel5.setText("Telefone:");
+
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##/##/####");
+            jTextFieldNascimento= new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
+
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("###.###.###-##");
+            jTextFieldCpf= new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
+
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("(##)#-####-####");
+            jTextFieldTelefone= new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
 
         jButton1.setText("Salvar");
         jButton1.setActionCommand("salvar");
@@ -193,7 +214,6 @@ public class JInternalFrameClientes extends javax.swing.JInternalFrame {
             cliente.setEndereco(getjTextFieldEndereco().getText());
             cliente.setTelefone(getjTextFieldTelefone().getText());
         
-            return cliente;
-                
+            return cliente;                
     }
 }

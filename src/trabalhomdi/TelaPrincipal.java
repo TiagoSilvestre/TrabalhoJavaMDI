@@ -19,7 +19,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Sistema para imobiliarias");
+        this.setTitle("Sistema para Corretores de Imóveis");
         
     }
 
@@ -54,6 +54,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar2.add(jMenu3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jDesktopPane.setBackground(new java.awt.Color(240, 240, 240));
 
