@@ -47,7 +47,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuClientes = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuEmpreendimentos = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -83,14 +82,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jMenuClientes.add(jMenuItem1);
-
-        jMenuItem4.setText("Editar");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenuClientes.add(jMenuItem4);
 
         jMenuBar1.add(jMenuClientes);
 
@@ -139,10 +130,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jDesktopPane.add(cliente);
         cliente.show();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuEmpreendimentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEmpreendimentosActionPerformed
 
@@ -199,6 +186,5 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }
