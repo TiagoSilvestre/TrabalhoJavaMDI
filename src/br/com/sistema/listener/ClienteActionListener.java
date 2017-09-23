@@ -19,7 +19,7 @@ import trabalhomdi.JInternalFrameClientes;
 public class ClienteActionListener implements ActionListener{
 
     private final JInternalFrameClientes janelacliente;
-    Cliente cliente;
+    Cliente cliente = null;
     
     
     @Override
@@ -27,7 +27,7 @@ public class ClienteActionListener implements ActionListener{
         if("salvar".equals(e.getActionCommand())) {
             this.cliente = janelacliente.getCliente();
             
-            System.out.print("Id: "+ cliente.getId() 
+            System.out.print("\nId: "+ cliente.getId() 
                     + "\nNome: "+ cliente.getNome() 
                     + "\nNascimento: " + cliente.getNascimento()
                     + "\nCpf: " + cliente.getCpf()
@@ -38,16 +38,15 @@ public class ClienteActionListener implements ActionListener{
         
         if("excluir".equals(e.getActionCommand())) {
             if(this.cliente != null){
-                System.out.print("Id: "+ this.cliente.getId() 
+                System.out.print("\n\nExcluindo cadastro de: \n\nId: "+ this.cliente.getId() 
                         + "\nNome: "+ this.cliente.getNome() 
                         + "\nNascimento: " + this.cliente.getNascimento()
                         + "\nCpf: " + this.cliente.getCpf()
                         + "\nEndereco: " + this.cliente.getEndereco()
                         + "\nTelefone: " + this.cliente.getTelefone()
                 );
-            }
-            if(this.cliente != null){
-                System.out.print("Nao cadastrado");
+            }else{
+                System.out.print("Nenhum cliente cadastrado");
             }
         }
         

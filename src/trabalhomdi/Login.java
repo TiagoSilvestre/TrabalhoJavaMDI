@@ -139,7 +139,7 @@ public class Login extends javax.swing.JFrame {
         this.senha = jTextFieldSenha.getText();
          
         if(this.checkLogin(this.user, this.senha)){
-            JOptionPane.showMessageDialog(null, "Sucesso");
+            JOptionPane.showMessageDialog(null, "Logado com sucesso!");
             this.dispose();
             new TelaPrincipal().setVisible(true);
         }

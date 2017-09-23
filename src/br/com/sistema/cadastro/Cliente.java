@@ -18,6 +18,7 @@ public class Cliente {
     private String telefone;
 
     public Cliente(){
+        this.id = "";
         this.nome = "";
         this.nascimento = "";
         this.cpf = "";
