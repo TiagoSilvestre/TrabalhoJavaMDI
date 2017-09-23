@@ -10,6 +10,7 @@ package br.com.sistema.cadastro;
  * @author comp8
  */
 public class Cliente {
+    private String id;
     private String nome;
     private String nascimento;
     private String cpf;
@@ -24,12 +25,20 @@ public class Cliente {
         this.telefone = "";
     }
     
-    public Cliente(String nome, String nascimento, String cpf, String endereco, String telefone) {
+    public Cliente(String id, String nome, String nascimento, String cpf, String endereco, String telefone) {
+        this.id = id;
         this.nome = nome;
         this.nascimento = nascimento;
         this.cpf = cpf;
         this.endereco = endereco;
         this.telefone = telefone;
+    }
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNome() {

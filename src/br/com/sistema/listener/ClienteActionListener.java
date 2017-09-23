@@ -18,20 +18,17 @@ import trabalhomdi.JInternalFrameClientes;
  */
 public class ClienteActionListener implements ActionListener{
 
-    private final JInternalFrameClientes Janelacliente;
-    private final Cliente cliente;
+    private final JInternalFrameClientes janelacliente;
+    Cliente cliente;
+    
     
     @Override
     public void actionPerformed(ActionEvent e) {
         if("salvar".equals(e.getActionCommand())) {
-            cliente.setNome(Janelacliente.getjTextFieldNome().getText());
-            cliente.setNascimento(Janelacliente.getjTextFieldNascimento().getText());
-            cliente.setCpf(Janelacliente.getjTextFieldCpf().getText());
-            cliente.setEndereco(Janelacliente.getjTextFieldEndereco().getText());
-            cliente.setTelefone(Janelacliente.getjTextFieldTelefone().getText());
+            this.cliente = janelacliente.getCliente();
             
-            
-            System.out.print("Nome: "+ cliente.getNome() 
+            System.out.print("Id: "+ cliente.getId() 
+                    + "\nNome: "+ cliente.getNome() 
                     + "\nNascimento: " + cliente.getNascimento()
                     + "\nCpf: " + cliente.getCpf()
                     + "\nEndereco: " + cliente.getEndereco()
@@ -39,14 +36,25 @@ public class ClienteActionListener implements ActionListener{
             );
         }
         
+        if("excluir".equals(e.getActionCommand())) {
+            if(this.cliente != null){
+                System.out.print("Id: "+ this.cliente.getId() 
+                        + "\nNome: "+ this.cliente.getNome() 
+                        + "\nNascimento: " + this.cliente.getNascimento()
+                        + "\nCpf: " + this.cliente.getCpf()
+                        + "\nEndereco: " + this.cliente.getEndereco()
+                        + "\nTelefone: " + this.cliente.getTelefone()
+                );
+            }
+            if(this.cliente != null){
+                System.out.print("Nao cadastrado");
+            }
+        }
+        
       
     }
 
-    public ClienteActionListener(Cliente cliente, JInternalFrameClientes janela) {
-        this.cliente = cliente;
-        this.Janelacliente = janela;
-        
+    public ClienteActionListener(JInternalFrameClientes janela) {
+        this.janelacliente = janela;
     }
-    
-    
 }
