@@ -22,7 +22,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Login");
+        this.setTitle("Loginhe");
     }
     
     public boolean checkLogin(String usuario, String senha){
