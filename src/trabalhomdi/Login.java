@@ -1,7 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+- Gravar dados do usuario em um arquivo txt no login
+
+- Criar um arquivo de log, para cada ação na aplicação. Exemplo:
+19/10/2017 20:38:02 - Giba logou no sistema
+
+- Tratar todo tipo de excessao do sistema
  */
 package trabalhomdi;
 
@@ -22,7 +25,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Loginhe");
+        this.setTitle("Login");
     }
     
     public boolean checkLogin(String usuario, String senha){
