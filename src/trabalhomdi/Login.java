@@ -14,7 +14,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -34,6 +36,11 @@ public class Login extends javax.swing.JFrame {
         this.setTitle("Login");
         try{
             this.verifyLastUser();
+            /*
+            GregorianCalendar calendar = new GregorianCalendar();
+            int hora = calendar.get(calendar.HOUR_OF_DAY);
+            System.out.println(hora);*/
+
         }catch(Exception e){
             //JOptionPane.showMessageDialog(null, e);
         }
@@ -163,6 +170,7 @@ public class Login extends javax.swing.JFrame {
         if(this.checkLogin(this.user, this.senha)){
             try{
                 this.gravarLogin(this.user);
+                
             } catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Deu ruim!"+ e);
             }
