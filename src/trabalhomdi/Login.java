@@ -8,6 +8,12 @@
  */
 package trabalhomdi;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +24,7 @@ public class Login extends javax.swing.JFrame {
     
     private String user;
     private String senha;
-
+    private String lastUserFile = "d:\\lastUser.txt";
     /**
      * Creates new form Login
      */
@@ -26,6 +32,11 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Login");
+        try{
+            this.verifyLastUser();
+        }catch(Exception e){
+            //JOptionPane.showMessageDialog(null, e);
+        }
     }
     
     public boolean checkLogin(String usuario, String senha){
@@ -36,6 +47,14 @@ public class Login extends javax.swing.JFrame {
         return false;
     }
 
+    private void verifyLastUser() throws FileNotFoundException, IOException{
+        FileReader arq = new FileReader(this.lastUserFile);
+        BufferedReader lerArq = new BufferedReader(arq);
+        String linha = lerArq.readLine(); // lê a primeira linha
+        jTextFieldUsuario.setText(linha);
+        arq.close();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -142,13 +161,25 @@ public class Login extends javax.swing.JFrame {
         this.senha = jTextFieldSenha.getText();
          
         if(this.checkLogin(this.user, this.senha)){
+            try{
+                this.gravarLogin(this.user);
+            } catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Deu ruim!"+ e);
+            }
+        
             JOptionPane.showMessageDialog(null, "Logado com sucesso!");
             this.dispose();
             new TelaPrincipal().setVisible(true);
         }
-        
     }//GEN-LAST:event_jButtonEntrarActionPerformed
 
+    private void gravarLogin(String name) throws IOException{
+        FileWriter arq = new FileWriter(this.lastUserFile);
+        PrintWriter gravarArq = new PrintWriter(arq);
+        gravarArq.printf(name);
+        arq.close();
+    }
+    
     private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
