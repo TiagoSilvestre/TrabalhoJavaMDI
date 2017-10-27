@@ -45,7 +45,7 @@ public class Log extends File{
     *Retorna o texto a ser impresso no arquivo
     */
     private String textToLog(String text){
-        return this.generateCurrentDateTime() + " - " + Contexto.USUARIO + " " + text + "\n\n";
+        return this.generateCurrentDateTime() + " - " + Contexto.USUARIO + " " + text + "<br>";
     }
     
      /**

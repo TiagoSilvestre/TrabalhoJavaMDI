@@ -9,6 +9,9 @@ import auxiliares.Log;
 import br.com.sistema.cadastro.Cliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import trabalhomdi.JInternalFrameClientes;
@@ -30,8 +33,8 @@ public class ClienteActionListener implements ActionListener{
             this.cliente = janelacliente.getCliente();
             try{
                 Log.getCurrentInstance().saveInLogFile("salvou um cliente");
-            } catch (Exception ei){
-                System.out.print(ei); 
+            } catch (Exception erro){
+                System.out.print(erro); 
             }
             //this.log.saveInLogFile(this.user, "entrou no sistema");
             System.out.print("\nId: "+ cliente.getId() 
@@ -50,6 +53,11 @@ public class ClienteActionListener implements ActionListener{
                         + "\nEndereco: " + this.cliente.getEndereco()
                         + "\nTelefone: " + this.cliente.getTelefone()
                 );
+                try {
+                    Log.getCurrentInstance().saveInLogFile("excluiu um cliente");
+                } catch (IOException erro) {
+                    System.out.print(erro); 
+                }
             }else{
                 System.out.print("Nenhum cliente cadastrado");
             }
