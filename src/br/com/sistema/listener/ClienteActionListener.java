@@ -26,7 +26,7 @@ public class ClienteActionListener implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if("salvar".equals(e.getActionCommand())) {
             this.cliente = janelacliente.getCliente();
-            
+            //this.log.saveInLogFile(this.user, "entrou no sistema");
             System.out.print("\nId: "+ cliente.getId() 
                     + "\nNome: "+ cliente.getNome() 
                     + "\nNascimento: " + cliente.getNascimento()

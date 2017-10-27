@@ -8,6 +8,7 @@
  */
 package trabalhomdi;
 
+import auxiliares.Log;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -24,9 +25,10 @@ import java.util.GregorianCalendar;
  */
 public class Login extends javax.swing.JFrame {
     
-    private String user;
+    public String user;
     private String senha;
     private String lastUserFile = "d:\\lastUser.txt";
+    private Log log;
     /**
      * Creates new form Login
      */
@@ -34,6 +36,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Login");
+        this.log = new Log();
         try{
             this.verifyLastUser();
             /*
@@ -170,6 +173,7 @@ public class Login extends javax.swing.JFrame {
         if(this.checkLogin(this.user, this.senha)){
             try{
                 this.gravarLogin(this.user);
+                this.log.saveInLogFile(this.user, "entrou no sistema");
                 
             } catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Deu ruim!"+ e);
