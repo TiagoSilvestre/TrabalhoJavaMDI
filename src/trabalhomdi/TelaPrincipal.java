@@ -36,12 +36,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
         jDesktopPane = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuClientes = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuEmpreendimentos = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
 
@@ -52,6 +55,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu3.setText("Edit");
         jMenuBar2.add(jMenu3);
+
+        jMenu5.setText("jMenu5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -102,6 +107,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuEmpreendimentos.add(jMenuItem2);
 
         jMenuBar1.add(jMenuEmpreendimentos);
+
+        jMenu6.setText("Contas");
+
+        jMenuItem3.setText("Contas para Pagar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu6);
 
         jMenu4.setText("Sobre");
         jMenu4.addActionListener(new java.awt.event.ActionListener() {
@@ -164,6 +181,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Academicos da Unesc desenvolvendo software!");
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        JInternalFrameContasParaPagar contasParaPagar = new JInternalFrameContasParaPagar();
+        jDesktopPane.add(contasParaPagar);
+        contasParaPagar.show();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -206,12 +229,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenu jMenuClientes;
     private javax.swing.JMenu jMenuEmpreendimentos;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }

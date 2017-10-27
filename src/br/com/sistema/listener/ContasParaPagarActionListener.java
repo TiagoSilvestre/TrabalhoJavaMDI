@@ -26,10 +26,10 @@ public class ContasParaPagarActionListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if("salvar".equals(e.getActionCommand())) {
-            this.cliente = janelacliente.getCliente();
-            Log a = new Log();
+            //this.cliente = janelacliente.getCliente();
+           // Log a = new Log();
             try{
-                a.saveInLogFile("salvou um cliente");
+               // a.saveInLogFile("salvou um cliente");
             } catch (Exception ei){
                 System.out.print(ei); 
             }

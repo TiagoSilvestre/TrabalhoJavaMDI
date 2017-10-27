@@ -23,7 +23,7 @@ import trabalhomdi.JInternalFrameClientes;
 public class ClienteActionListener implements ActionListener{
 
     private final JInternalFrameClientes janelacliente;
-    Cliente cliente = null;
+    private Cliente cliente = null;
     
     
     @Override
@@ -36,7 +36,7 @@ public class ClienteActionListener implements ActionListener{
             } catch (Exception erro){
                 System.out.print(erro); 
             }
-            //this.log.saveInLogFile(this.user, "entrou no sistema");
+
             System.out.print("\nId: "+ cliente.getId() 
                     + "\nNome: "+ cliente.getNome() 
                     + "\nNascimento: " + cliente.getNascimento()
