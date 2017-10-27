@@ -15,9 +15,15 @@ import java.text.SimpleDateFormat;
  */
 public class Log extends File{
 
+    private static Log instance = new Log(); 
+    
     String logFileName = "d:\\logFile.txt";
     
-    public Log() {
+    public static Log getCurrentInstance(){
+        return instance;
+    }
+    
+    private Log() {
     }
     /*
     * Retorna a data e hora atual como strig
@@ -38,18 +44,18 @@ public class Log extends File{
     *
     *Retorna o texto a ser impresso no arquivo
     */
-    private String textToLog(String user, String text){
-        return this.generateCurrentDateTime() + " - " + user + " " + text;
+    private String textToLog(String text){
+        return this.generateCurrentDateTime() + " - " + Contexto.USUARIO + " " + text + "\n\n";
     }
     
-     /*
-    *
-    *Retorna o texto a ser impresso no arquivo
+     /**
+      * @param String texto para adicionar no arquivo
+      * @return Retorna o texto a ser impresso no arquivo
     */   
-    public void saveInLogFile(String user, String textToAppend) throws IOException{ 
-        FileWriter arq = new FileWriter(this.logFileName);
+    public void saveInLogFile(String textToAppend) throws IOException{ 
+        FileWriter arq = new FileWriter(this.logFileName, true);
         PrintWriter gravarArq = new PrintWriter(arq);
-        gravarArq.printf(this.textToLog(user, textToAppend));
+        gravarArq.printf(this.textToLog(textToAppend));
         arq.close();
     }
     

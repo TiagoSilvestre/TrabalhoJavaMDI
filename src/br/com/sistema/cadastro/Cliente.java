@@ -34,10 +34,17 @@ public class Cliente {
         this.endereco = endereco;
         this.telefone = telefone;
     }
+    
+    /**
+     @return uma string com o conteúdo do objeto
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     @param id identificação do objeto
+     */
     public void setId(String id) {
         this.id = id;
     }

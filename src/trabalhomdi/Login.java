@@ -8,6 +8,7 @@
  */
 package trabalhomdi;
 
+import auxiliares.Contexto;
 import auxiliares.Log;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -28,7 +29,6 @@ public class Login extends javax.swing.JFrame {
     public String user;
     private String senha;
     private String lastUserFile = "d:\\lastUser.txt";
-    private Log log;
     /**
      * Creates new form Login
      */
@@ -36,7 +36,6 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Login");
-        this.log = new Log();
         try{
             this.verifyLastUser();
             /*
@@ -172,11 +171,12 @@ public class Login extends javax.swing.JFrame {
          
         if(this.checkLogin(this.user, this.senha)){
             try{
-                this.gravarLogin(this.user);
-                this.log.saveInLogFile(this.user, "entrou no sistema");
+                Contexto.USUARIO = this.user;
+                this.gravarLogin(Contexto.USUARIO);
+                Log.getCurrentInstance().saveInLogFile("entrou no sistema");
                 
             } catch(Exception e){
-                JOptionPane.showMessageDialog(null, "Deu ruim!"+ e);
+                JOptionPane.showMessageDialog(null, "Deu ruim! "+ e);
             }
         
             JOptionPane.showMessageDialog(null, "Logado com sucesso!");

@@ -17,19 +17,19 @@ import trabalhomdi.JInternalFrameClientes;
  *
  * @author ts
  */
-public class ClienteActionListener implements ActionListener{
+public class ContasParaPagarActionListener implements ActionListener{
 
-    private final JInternalFrameClientes janelacliente;
+    //private final JInternalFrameClientes janelacliente;
     Cliente cliente = null;
     
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        
         if("salvar".equals(e.getActionCommand())) {
             this.cliente = janelacliente.getCliente();
+            Log a = new Log();
             try{
-                Log.getCurrentInstance().saveInLogFile("salvou um cliente");
+                a.saveInLogFile("salvou um cliente");
             } catch (Exception ei){
                 System.out.print(ei); 
             }
@@ -41,7 +41,9 @@ public class ClienteActionListener implements ActionListener{
                     + "\nEndereco: " + cliente.getEndereco()
                     + "\nTelefone: " + cliente.getTelefone()
             );
-        } else if("excluir".equals(e.getActionCommand())) {
+        }
+        
+        if("excluir".equals(e.getActionCommand())) {
             if(this.cliente != null){
                 System.out.print("\n\nExcluindo cadastro de: \n\nId: "+ this.cliente.getId() 
                         + "\nNome: "+ this.cliente.getNome() 
@@ -57,8 +59,9 @@ public class ClienteActionListener implements ActionListener{
         
       
     }
-
+/*
     public ClienteActionListener(JInternalFrameClientes janela) {
         this.janelacliente = janela;
     }
+*/
 }
