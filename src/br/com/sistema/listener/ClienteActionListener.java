@@ -46,6 +46,11 @@ public class ClienteActionListener implements ActionListener{
             );
         } else if("excluir".equals(e.getActionCommand())) {
             if(this.cliente != null){
+                try{
+                    Log.getCurrentInstance().saveInLogFile("excluiu um cliente");
+                } catch (Exception erro){
+                    System.out.print(erro); 
+                }
                 System.out.print("\n\nExcluindo cadastro de: \n\nId: "+ this.cliente.getId() 
                         + "\nNome: "+ this.cliente.getNome() 
                         + "\nNascimento: " + this.cliente.getNascimento()

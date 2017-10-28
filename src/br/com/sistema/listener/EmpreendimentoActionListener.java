@@ -5,6 +5,7 @@
  */
 package br.com.sistema.listener;
 
+import auxiliares.Log;
 import br.com.sistema.cadastro.Empreendimento;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,6 +29,11 @@ public class EmpreendimentoActionListener  implements ActionListener{
         if("salvar".equals(e.getActionCommand())) {
             this.emp = janelaemp.getEmp();
             
+            try{
+                Log.getCurrentInstance().saveInLogFile("salvou um empreendimento");
+            } catch (Exception erro){
+                System.out.print(erro); 
+            }
             System.out.print("\nId: "+ emp.getId() 
                     + "\nTitulo: "+ emp.getTitulo() 
                     + "\nDescricao: " + emp.getDescricao()
@@ -41,6 +47,11 @@ public class EmpreendimentoActionListener  implements ActionListener{
         
         if("excluir".equals(e.getActionCommand())) {
             if(this.emp != null){
+                try{
+                    Log.getCurrentInstance().saveInLogFile("excluiu um empreendimento");
+                } catch (Exception erro){
+                    System.out.print(erro); 
+                }
 
                 System.out.print("\n\nExcluindo cadastro de:" + 
                         "\n\nId: "+ emp.getId() 
