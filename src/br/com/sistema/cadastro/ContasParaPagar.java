@@ -15,10 +15,10 @@ public class ContasParaPagar {
     private String valor;
     private String vencimento;
 
-    public ContasParaPagar(String descricao, String valor, String vencimento) {
-        this.descricao = descricao;
-        this.valor = valor;
-        this.vencimento = vencimento;
+    public ContasParaPagar() {
+        this.descricao = "";
+        this.valor = "";
+        this.vencimento = "";
     }
 
     public String getDescricao() {

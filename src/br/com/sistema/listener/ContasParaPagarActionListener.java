@@ -6,12 +6,12 @@
 package br.com.sistema.listener;
 
 import auxiliares.Log;
-import br.com.sistema.cadastro.Cliente;
+import br.com.sistema.cadastro.ContasParaPagar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import trabalhomdi.JInternalFrameClientes;
+import trabalhomdi.JInternalFrameContasParaPagar;
 
 /**
  *
@@ -19,38 +19,36 @@ import trabalhomdi.JInternalFrameClientes;
  */
 public class ContasParaPagarActionListener implements ActionListener{
 
-    //private final JInternalFrameClientes janelacliente;
-    Cliente cliente = null;
+    private final JInternalFrameContasParaPagar janelaContasParaPagar;
+    ContasParaPagar contasParaPagar = null;
     
     
     @Override
     public void actionPerformed(ActionEvent e) {
         if("salvar".equals(e.getActionCommand())) {
-            //this.cliente = janelacliente.getCliente();
-           // Log a = new Log();
-            try{
-               // a.saveInLogFile("salvou um cliente");
-            } catch (Exception ei){
-                System.out.print(ei); 
+           this.contasParaPagar = janelaContasParaPagar.getContasParaPagar();
+           try{
+                Log.getCurrentInstance().saveInLogFile("salvou uma conta para pagar");
+            } catch (Exception erro){
+                System.out.print(erro); 
             }
-            //this.log.saveInLogFile(this.user, "entrou no sistema");
-            System.out.print("\nId: "+ cliente.getId() 
-                    + "\nNome: "+ cliente.getNome() 
-                    + "\nNascimento: " + cliente.getNascimento()
-                    + "\nCpf: " + cliente.getCpf()
-                    + "\nEndereco: " + cliente.getEndereco()
-                    + "\nTelefone: " + cliente.getTelefone()
+
+            System.out.print("\nId: "+ contasParaPagar.getDescricao() 
+                    + "\nNome: "+ contasParaPagar.getValor() 
+                    + "\nNascimento: " + contasParaPagar.getVencimento()
             );
         }
         
         if("excluir".equals(e.getActionCommand())) {
-            if(this.cliente != null){
-                System.out.print("\n\nExcluindo cadastro de: \n\nId: "+ this.cliente.getId() 
-                        + "\nNome: "+ this.cliente.getNome() 
-                        + "\nNascimento: " + this.cliente.getNascimento()
-                        + "\nCpf: " + this.cliente.getCpf()
-                        + "\nEndereco: " + this.cliente.getEndereco()
-                        + "\nTelefone: " + this.cliente.getTelefone()
+            if(this.contasParaPagar != null){
+                try{
+                    Log.getCurrentInstance().saveInLogFile("excluiu uma conta para pagar");
+                } catch (Exception erro){
+                    System.out.print(erro); 
+                }
+                System.out.print("\n\nExcluindo cadastro de: \n\nId: "+ this.contasParaPagar.getDescricao() 
+                        + "\nNome: "+ this.contasParaPagar.getValor() 
+                        + "\nNascimento: " + this.contasParaPagar.getVencimento()
                 );
             }else{
                 System.out.print("Nenhum cliente cadastrado");
@@ -59,9 +57,9 @@ public class ContasParaPagarActionListener implements ActionListener{
         
       
     }
-/*
-    public ClienteActionListener(JInternalFrameClientes janela) {
-        this.janelacliente = janela;
+
+    public ContasParaPagarActionListener(JInternalFrameContasParaPagar janela) {
+        this.janelaContasParaPagar = janela;
     }
-*/
+
 }
