@@ -17,7 +17,7 @@ public class Log extends File{
 
     private static Log instance = new Log(); 
     
-    String logFileName = "d:\\logFile.txt";
+    String logFileName = "c:\\logFile.txt";
     
     public static Log getCurrentInstance(){
         return instance;

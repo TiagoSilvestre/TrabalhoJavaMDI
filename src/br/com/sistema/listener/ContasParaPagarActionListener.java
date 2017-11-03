@@ -6,9 +6,11 @@
 package br.com.sistema.listener;
 
 import auxiliares.Log;
+import auxiliares.Tratamentos;
 import br.com.sistema.cadastro.ContasParaPagar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import trabalhomdi.JInternalFrameContasParaPagar;
@@ -33,9 +35,9 @@ public class ContasParaPagarActionListener implements ActionListener{
                 System.out.print(erro); 
             }
 
-            System.out.print("\nId: "+ contasParaPagar.getDescricao() 
-                    + "\nNome: "+ contasParaPagar.getValor() 
-                    + "\nNascimento: " + contasParaPagar.getVencimento()
+            System.out.print("\nDescricao: "+ contasParaPagar.getDescricao() 
+                    + "\nValor: "+ contasParaPagar.getValor() 
+                    + "\nVencimento: " + contasParaPagar.getVencimento()
             );
         }
         
@@ -43,12 +45,12 @@ public class ContasParaPagarActionListener implements ActionListener{
             if(this.contasParaPagar != null){
                 try{
                     Log.getCurrentInstance().saveInLogFile("excluiu uma conta para pagar");
-                } catch (Exception erro){
-                    System.out.print(erro); 
+                } catch (IOException erro){
+                    
                 }
-                System.out.print("\n\nExcluindo cadastro de: \n\nId: "+ this.contasParaPagar.getDescricao() 
-                        + "\nNome: "+ this.contasParaPagar.getValor() 
-                        + "\nNascimento: " + this.contasParaPagar.getVencimento()
+                System.out.print("\n\nExcluindo cadastro de: \n\nDescricao: "+ this.contasParaPagar.getDescricao() 
+                        + "\nValor: "+ this.contasParaPagar.getValor() 
+                        + "\nVencimento: " + this.contasParaPagar.getVencimento()
                 );
             }else{
                 System.out.print("Nenhum cliente cadastrado");

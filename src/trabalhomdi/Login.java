@@ -28,7 +28,7 @@ public class Login extends javax.swing.JFrame {
     
     public String user;
     private String senha;
-    private String lastUserFile = "d:\\lastUser.txt";
+    private String lastUserFile = "c:\\lastUser.txt";
     /**
      * Creates new form Login
      */
@@ -38,13 +38,8 @@ public class Login extends javax.swing.JFrame {
         this.setTitle("Login");
         try{
             this.verifyLastUser();
-            /*
-            GregorianCalendar calendar = new GregorianCalendar();
-            int hora = calendar.get(calendar.HOUR_OF_DAY);
-            System.out.println(hora);*/
-
         }catch(Exception e){
-            //JOptionPane.showMessageDialog(null, e);
+            System.out.println("Erros aconteceram");
         }
     }
     

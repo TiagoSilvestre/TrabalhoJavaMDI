@@ -66,6 +66,13 @@ public class JInternalFrameContasParaPagar extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Vencimento:");
 
+        try{
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##/##/####");
+            jTextFieldVencimento= new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
+
         jButton1.setText("Salvar");
         jButton1.setActionCommand("salvar");
         jButton1.addActionListener(listener);
