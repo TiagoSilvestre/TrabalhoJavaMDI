@@ -19,6 +19,8 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -39,7 +41,12 @@ public class Login extends javax.swing.JFrame {
         try{
             this.verifyLastUser();
         }catch(Exception e){
-            System.out.println("Erros aconteceram");
+            System.out.println("Oops, algo deu errado, consulte o arquivo de log para mais detalhes");
+            try {
+                Log.getCurrentInstance().saveStackTrace(e);
+            } catch (Exception ex) {
+                System.out.println("Houveram erros: " + e);
+            }
         }
     }
     
@@ -171,7 +178,12 @@ public class Login extends javax.swing.JFrame {
                 Log.getCurrentInstance().saveInLogFile("entrou no sistema");
                 
             } catch(Exception e){
-                JOptionPane.showMessageDialog(null, "Deu ruim! "+ e);
+                System.out.println("Oops, algo deu errado, consulte o arquivo de log para mais detalhes");
+                try {
+                    Log.getCurrentInstance().saveStackTrace(e);
+                } catch (Exception ex) {
+                    System.out.println("Houveram erros: " + e);
+                }
             }
         
             JOptionPane.showMessageDialog(null, "Logado com sucesso!");
@@ -180,7 +192,7 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonEntrarActionPerformed
 
-    private void gravarLogin(String name) throws IOException{
+    private void gravarLogin(String name) throws FileNotFoundException, IOException{
         FileWriter arq = new FileWriter(this.lastUserFile);
         PrintWriter gravarArq = new PrintWriter(arq);
         gravarArq.printf(name);

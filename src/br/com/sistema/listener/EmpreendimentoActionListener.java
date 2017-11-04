@@ -32,7 +32,12 @@ public class EmpreendimentoActionListener  implements ActionListener{
             try{
                 Log.getCurrentInstance().saveInLogFile("salvou um empreendimento");
             } catch (Exception erro){
-                System.out.print(erro); 
+                    System.out.println("Oops, algo deu errado, consulte o arquivo de log para mais detalhes");
+                    try {
+                        Log.getCurrentInstance().saveStackTrace(erro);
+                    } catch (Exception ex) {
+                        System.out.println("Houveram erros: " + ex);
+                    }
             }
             System.out.print("\nId: "+ emp.getId() 
                     + "\nTitulo: "+ emp.getTitulo() 
@@ -50,7 +55,12 @@ public class EmpreendimentoActionListener  implements ActionListener{
                 try{
                     Log.getCurrentInstance().saveInLogFile("excluiu um empreendimento");
                 } catch (Exception erro){
-                    System.out.print(erro); 
+                    System.out.println("Oops, algo deu errado, consulte o arquivo de log para mais detalhes");
+                    try {
+                        Log.getCurrentInstance().saveStackTrace(erro);
+                    } catch (Exception ex) {
+                        System.out.println("Houveram erros: " + ex);
+                    }
                 }
 
                 System.out.print("\n\nExcluindo cadastro de:" + 

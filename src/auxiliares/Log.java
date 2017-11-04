@@ -7,13 +7,14 @@ package auxiliares;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 
 /**
  *
  * @author ts
  */
-public class Log extends File{
+public class Log {
 
     private static Log instance = new Log(); 
     
@@ -59,5 +60,12 @@ public class Log extends File{
         arq.close();
     }
     
-    
+    public void saveStackTrace(Exception e) throws IOException{
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        e.printStackTrace(pw);
+        pw.close();
+        sw.close();
+        saveInLogFile(sw.getBuffer().toString());
+    }
 }

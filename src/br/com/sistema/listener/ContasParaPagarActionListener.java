@@ -32,7 +32,12 @@ public class ContasParaPagarActionListener implements ActionListener{
            try{
                 Log.getCurrentInstance().saveInLogFile("salvou uma conta para pagar");
             } catch (Exception erro){
-                System.out.print(erro); 
+                System.out.println("Oops, algo deu errado, consulte o arquivo de log para mais detalhes");
+                try {
+                    Log.getCurrentInstance().saveStackTrace(erro);
+                } catch (Exception ex) {
+                    System.out.println("Houveram erros: " + ex);
+                }
             }
 
             System.out.print("\nDescricao: "+ contasParaPagar.getDescricao() 
@@ -46,7 +51,12 @@ public class ContasParaPagarActionListener implements ActionListener{
                 try{
                     Log.getCurrentInstance().saveInLogFile("excluiu uma conta para pagar");
                 } catch (IOException erro){
-                    
+                    System.out.println("Oops, algo deu errado, consulte o arquivo de log para mais detalhes");
+                    try {
+                        Log.getCurrentInstance().saveStackTrace(erro);
+                    } catch (Exception ex) {
+                        System.out.println("Houveram erros: " + ex);
+                    }
                 }
                 System.out.print("\n\nExcluindo cadastro de: \n\nDescricao: "+ this.contasParaPagar.getDescricao() 
                         + "\nValor: "+ this.contasParaPagar.getValor() 

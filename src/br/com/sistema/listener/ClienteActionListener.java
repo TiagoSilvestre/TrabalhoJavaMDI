@@ -33,8 +33,13 @@ public class ClienteActionListener implements ActionListener{
             this.cliente = janelacliente.getCliente();
             try{
                 Log.getCurrentInstance().saveInLogFile("salvou um cliente");
-            } catch (Exception erro){
-                System.out.print(erro); 
+            } catch (Exception err){
+                System.out.println("Oops, algo deu errado, consulte o arquivo de log para mais detalhes");
+                try {
+                    Log.getCurrentInstance().saveStackTrace(err);
+                } catch (Exception ex) {
+                    System.out.println("Houveram erros: " + ex);
+                }
             }
 
             System.out.print("\nId: "+ cliente.getId() 
@@ -49,7 +54,12 @@ public class ClienteActionListener implements ActionListener{
                 try{
                     Log.getCurrentInstance().saveInLogFile("excluiu um cliente");
                 } catch (Exception erro){
-                    System.out.print(erro); 
+                    System.out.println("Oops, algo deu errado, consulte o arquivo de log para mais detalhes");
+                    try {
+                        Log.getCurrentInstance().saveStackTrace(erro);
+                    } catch (Exception ex) {
+                        System.out.println("Houveram erros: " + ex);
+                    }
                 }
                 System.out.print("\n\nExcluindo cadastro de: \n\nId: "+ this.cliente.getId() 
                         + "\nNome: "+ this.cliente.getNome() 
@@ -58,17 +68,10 @@ public class ClienteActionListener implements ActionListener{
                         + "\nEndereco: " + this.cliente.getEndereco()
                         + "\nTelefone: " + this.cliente.getTelefone()
                 );
-                try {
-                    Log.getCurrentInstance().saveInLogFile("excluiu um cliente");
-                } catch (IOException erro) {
-                    System.out.print(erro); 
-                }
             }else{
                 System.out.print("Nenhum cliente cadastrado");
             }
         }
-        
-      
     }
 
     public ClienteActionListener(JInternalFrameClientes janela) {
