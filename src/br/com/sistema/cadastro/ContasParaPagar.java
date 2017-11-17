@@ -14,16 +14,26 @@ import java.math.BigDecimal;
 public class ContasParaPagar {
 
     //private BigDecimal valor;
+    private String id;
     private String descricao;
     private String valor;
     private String vencimento;
 
     public ContasParaPagar() {
+        this.id = "";
         this.descricao = "";
         this.valor = "";
         this.vencimento = "";
     }
 
+    public String getId() {
+        return id;
+    }
+    
+    public void setId(String id) {
+        this.id = id;
+    }
+    
     public String getDescricao() {
         return descricao;
     }

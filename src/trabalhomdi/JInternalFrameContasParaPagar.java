@@ -128,7 +128,7 @@ public class JInternalFrameContasParaPagar extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,19 +168,16 @@ public class JInternalFrameContasParaPagar extends javax.swing.JInternalFrame {
     }
     
     
-    public ContasParaPagar getContasParaPagar() throws Tratamentos {
-        if(getjTextFieldDescricao().getText() == null || getjTextFieldDescricao().getText().trim().length() == 0){
-            throw new Tratamentos("A descrição é obrigatória!");
-        }
-        
-        
+    public ContasParaPagar getContasParaPagar() {
+        //if(getjTextFieldDescricao().getText() == null || getjTextFieldDescricao().getText().trim().length() == 0){
+        //    throw new Tratamentos("A descrição é obrigatória!");
+        //}
+
         ContasParaPagar contasParaPaguar = new ContasParaPagar();
         contasParaPaguar.setDescricao(getjTextFieldDescricao().getText());
         contasParaPaguar.setValor(getjTextFieldValor().getText());
         contasParaPaguar.setVencimento(getjTextFieldVencimento().getText());
-            
-        
-        
+
         return contasParaPaguar;                
     }
 

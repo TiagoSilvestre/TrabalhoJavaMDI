@@ -7,10 +7,13 @@ package br.com.sistema.listener;
 
 import auxiliares.Log;
 import auxiliares.Tratamentos;
+import br.com.sistema.DAO.ContasParaPagarDAO;
 import br.com.sistema.cadastro.ContasParaPagar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import trabalhomdi.JInternalFrameContasParaPagar;
@@ -22,20 +25,20 @@ import trabalhomdi.JInternalFrameContasParaPagar;
 public class ContasParaPagarActionListener implements ActionListener{
 
     private final JInternalFrameContasParaPagar janelaContasParaPagar;
-    ContasParaPagar contasParaPagar = null;
+    
     
     
     @Override
     public void actionPerformed(ActionEvent e) {
         if("salvar".equals(e.getActionCommand())) {
-            try {
-                this.contasParaPagar = janelaContasParaPagar.getContasParaPagar();
+            ContasParaPagar contasParaPagar = janelaContasParaPagar.getContasParaPagar();
+            try {    
+                ContasParaPagarDAO novoContaParaPagarDAO = new ContasParaPagarDAO();
+                novoContaParaPagarDAO.insert(contasParaPagar);
+                JOptionPane.showMessageDialog(null, "Conta para pagar salvo com sucesso!");
             }catch(Tratamentos t){
                JOptionPane.showMessageDialog(null, t.getMessage());
             }
-           
-           
-           
            try{
                 Log.getCurrentInstance().saveInLogFile("salvou uma conta para pagar");
             } catch (Exception erro){
@@ -54,7 +57,8 @@ public class ContasParaPagarActionListener implements ActionListener{
         }
         
         if("excluir".equals(e.getActionCommand())) {
-            if(this.contasParaPagar != null){
+            ContasParaPagar contasParaPagar = janelaContasParaPagar.getContasParaPagar();
+            if(contasParaPagar != null){
                 try{
                     Log.getCurrentInstance().saveInLogFile("excluiu uma conta para pagar");
                 } catch (IOException erro){
@@ -65,9 +69,9 @@ public class ContasParaPagarActionListener implements ActionListener{
                         System.out.println("Houveram erros: " + ex);
                     }
                 }
-                System.out.print("\n\nExcluindo cadastro de: \n\nDescricao: "+ this.contasParaPagar.getDescricao() 
-                        + "\nValor: "+ this.contasParaPagar.getValor() 
-                        + "\nVencimento: " + this.contasParaPagar.getVencimento()
+                System.out.print("\n\nExcluindo cadastro de: \n\nDescricao: "+ contasParaPagar.getDescricao() 
+                        + "\nValor: "+ contasParaPagar.getValor() 
+                        + "\nVencimento: " + contasParaPagar.getVencimento()
                 );
             }else{
                 System.out.print("Nenhum cliente cadastrado");

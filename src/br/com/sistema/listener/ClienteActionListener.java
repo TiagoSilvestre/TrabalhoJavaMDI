@@ -31,8 +31,8 @@ public class ClienteActionListener implements ActionListener{
         if("salvar".equals(e.getActionCommand())) {
             Cliente cliente = janelacliente.getCliente();
             try{
-                ClientesDao novoCliente = new ClientesDao();
-                novoCliente.insert(cliente);
+                ClientesDao novoClienteDAO = new ClientesDao();
+                novoClienteDAO.insert(cliente);
                 Log.getCurrentInstance().saveInLogFile("salvou um cliente");
                 JOptionPane.showMessageDialog(null, "Cliente salvo com sucesso!");
             } catch (Exception err){
