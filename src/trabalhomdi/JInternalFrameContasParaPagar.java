@@ -5,6 +5,7 @@
  */
 package trabalhomdi;
 
+import auxiliares.Tratamentos;
 import br.com.sistema.cadastro.ContasParaPagar;
 import br.com.sistema.listener.ContasParaPagarActionListener;
 import javax.swing.JTextField;
@@ -167,12 +168,19 @@ public class JInternalFrameContasParaPagar extends javax.swing.JInternalFrame {
     }
     
     
-    public ContasParaPagar getContasParaPagar(){
+    public ContasParaPagar getContasParaPagar() throws Tratamentos {
+        if(getjTextFieldDescricao().getText() == null || getjTextFieldDescricao().getText().trim().length() == 0){
+            throw new Tratamentos("A descrição é obrigatória!");
+        }
+        
+        
         ContasParaPagar contasParaPaguar = new ContasParaPagar();
         contasParaPaguar.setDescricao(getjTextFieldDescricao().getText());
         contasParaPaguar.setValor(getjTextFieldValor().getText());
         contasParaPaguar.setVencimento(getjTextFieldVencimento().getText());
             
+        
+        
         return contasParaPaguar;                
     }
 

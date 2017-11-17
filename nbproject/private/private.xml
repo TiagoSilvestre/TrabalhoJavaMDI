@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/br/com/sistema/listener/ClienteActionListener.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>38</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/Ciencia%20da%20Computaçao/Tópicos%20Especiais%20l/TrabalhoMDIsegundaParte/TrabalhoJavaMDI/src/auxiliares/Tratamentos.java</file>
+            <file>file:/D:/Ciencia%20da%20Computaçao/Tópicos%20Especiais%20l/TrabalhoMDIsegundaParte/TrabalhoJavaMDI/src/br/com/sistema/DAO/ClientesDao.java</file>
+            <file>file:/D:/Ciencia%20da%20Computaçao/Tópicos%20Especiais%20l/TrabalhoMDIsegundaParte/TrabalhoJavaMDI/src/br/com/sistema/listener/ClienteActionListener.java</file>
+            <file>file:/D:/Ciencia%20da%20Computaçao/Tópicos%20Especiais%20l/TrabalhoMDIsegundaParte/TrabalhoJavaMDI/src/trabalhomdi/JInternalFrameClientes.java</file>
+            <file>file:/D:/Ciencia%20da%20Computaçao/Tópicos%20Especiais%20l/TrabalhoMDIsegundaParte/TrabalhoJavaMDI/src/br/com/sistema/listener/ContasParaPagarActionListener.java</file>
+            <file>file:/D:/Ciencia%20da%20Computaçao/Tópicos%20Especiais%20l/TrabalhoMDIsegundaParte/TrabalhoJavaMDI/src/auxiliares/Conexao.java</file>
+        </group>
     </open-files>
 </project-private>

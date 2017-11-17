@@ -5,12 +5,15 @@
  */
 package br.com.sistema.cadastro;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author ts
  */
 public class ContasParaPagar {
 
+    //private BigDecimal valor;
     private String descricao;
     private String valor;
     private String vencimento;

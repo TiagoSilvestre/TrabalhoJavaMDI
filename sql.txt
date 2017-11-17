@@ -1,0 +1,14 @@
+CREATE TABLE Clientes (
+    id varchar(255),
+    nome varchar(255),
+    nascimento varchar(255),
+    cpf varchar(255),
+    endereco varchar(255),
+    telefone varchar(255)
+);
+
+
+
+insert into clientes (id, nome, nascimento, cpf, endereco, telefone) values('0','Tamires','02/10/1990','071.758.589-96','Rua Augusta','741,48 34334876');
+
+select * from clientes;

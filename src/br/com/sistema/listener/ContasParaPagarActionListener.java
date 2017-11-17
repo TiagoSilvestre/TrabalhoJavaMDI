@@ -28,7 +28,14 @@ public class ContasParaPagarActionListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if("salvar".equals(e.getActionCommand())) {
-           this.contasParaPagar = janelaContasParaPagar.getContasParaPagar();
+            try {
+                this.contasParaPagar = janelaContasParaPagar.getContasParaPagar();
+            }catch(Tratamentos t){
+               JOptionPane.showMessageDialog(null, t.getMessage());
+            }
+           
+           
+           
            try{
                 Log.getCurrentInstance().saveInLogFile("salvou uma conta para pagar");
             } catch (Exception erro){

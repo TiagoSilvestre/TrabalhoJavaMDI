@@ -1,0 +1,10 @@
+/*C2*/SET SCHEMA PUBLIC
+CONNECT USER SA
+CREATE TABLE Cliente (\u000a    id varchar(255),\u000a    nome varchar(255),\u000a    nascimento varchar(255),\u000a    cpf varchar(255),\u000a    endereco varchar(255),\u000a    telefone varchar(255)\u000a)
+INSERT INTO CLIENTE VALUES('0','Tamires','02/10/1990','071.758.589-96','Rua Augusta','741,48 34334876')
+drop table cliente
+CREATE TABLE Cliente (\u000a    id varchar(255),\u000a    nome varchar(255),\u000a    nascimento varchar(255),\u000a    cpf varchar(255),\u000a    endereco varchar(255),\u000a    telefone varchar(255)\u000a)
+INSERT INTO CLIENTE VALUES('0','Tamires','02/10/1990','071.758.589-\u000a96','Rua Augusta','741,48 34334876')
+drop table cliente
+CREATE TABLE Clientes (\u000a    id varchar(255),\u000a    nome varchar(255),\u000a    nascimento varchar(255),\u000a    cpf varchar(255),\u000a    endereco varchar(255),\u000a    telefone varchar(255)\u000a)
+INSERT INTO CLIENTES VALUES('0','Tamires','02/10/1990','071.758.589-\u000a96','Rua Augusta','741,48 34334876')

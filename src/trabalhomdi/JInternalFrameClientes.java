@@ -225,13 +225,13 @@ public class JInternalFrameClientes extends javax.swing.JInternalFrame {
     
     public Cliente getCliente(){
         Cliente cliente = new Cliente();
-            cliente.setId(getjTextFieldId().getText());
-            cliente.setNome(getjTextFieldNome().getText());
-            cliente.setNascimento(getjTextFieldNascimento().getText());
-            cliente.setCpf(getjTextFieldCpf().getText());
-            cliente.setEndereco(getjTextFieldEndereco().getText());
-            cliente.setTelefone(getjTextFieldTelefone().getText());
+        cliente.setId(getjTextFieldId().getText());
+        cliente.setNome(getjTextFieldNome().getText());
+        cliente.setNascimento(getjTextFieldNascimento().getText());
+        cliente.setCpf(getjTextFieldCpf().getText());
+        cliente.setEndereco(getjTextFieldEndereco().getText());
+        cliente.setTelefone(getjTextFieldTelefone().getText());
         
-            return cliente;                
+        return cliente;                
     }
 }

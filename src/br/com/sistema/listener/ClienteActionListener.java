@@ -6,6 +6,7 @@
 package br.com.sistema.listener;
 
 import auxiliares.Log;
+import br.com.sistema.DAO.ClientesDao;
 import br.com.sistema.cadastro.Cliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,6 +33,8 @@ public class ClienteActionListener implements ActionListener{
         if("salvar".equals(e.getActionCommand())) {
             this.cliente = janelacliente.getCliente();
             try{
+                ClientesDao novoCliente = new ClientesDao();
+                novoCliente.insert(this.cliente);
                 Log.getCurrentInstance().saveInLogFile("salvou um cliente");
             } catch (Exception err){
                 System.out.println("Oops, algo deu errado, consulte o arquivo de log para mais detalhes");
