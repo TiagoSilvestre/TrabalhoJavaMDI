@@ -12,3 +12,31 @@ CREATE TABLE Clientes (
 insert into clientes (id, nome, nascimento, cpf, endereco, telefone) values('0','Tamires','02/10/1990','071.758.589-96','Rua Augusta','741,48 34334876');
 
 select * from clientes;
+
+
+
+
+
+------------------------------------------------------
+
+CREATE TABLE  ContasParaPagar (
+   descricao varchar(255),
+   valor  varchar(255),
+    vencimento varchar(255),
+);
+
+
+
+
+CREATE TABLE  Empreendimento (
+   id varchar(255),
+   titulo varchar(255),
+   boolean aluguel(255),
+   valorAluguel varchar(255),
+   boolean venda(255),
+   titulo valorVenda(255),
+   endereco varchar(255),
+   descricao varchar(255),
+   contato varchar(255),
+
+);

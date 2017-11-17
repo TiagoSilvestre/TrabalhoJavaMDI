@@ -11,7 +11,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
-
+    /*
+     * retorna a conexao
+    */
     public static Connection getConnection() throws Tratamentos{
         Connection conn = null;
         try {

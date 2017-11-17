@@ -21,7 +21,7 @@ public class ClientesDao {
     public void insert(Cliente cliente) throws Tratamentos {
         Connection conn = null;
         PreparedStatement ps = null;
-        System.out.println("Entroy");
+        System.out.println("Entrou Insert");
         try {
             conn = Conexao.getConnection();
             String sql = "insert into clientes (id, nome, nascimento, cpf, endereco, telefone) values(?,?,?,?,?,?)";
@@ -64,4 +64,47 @@ public class ClientesDao {
             }
         }
     }
+    
+    public void delete(Cliente cliente) throws Tratamentos {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        System.out.println("Entrou Delete");
+        try {
+            conn = Conexao.getConnection();
+            String sql = "delete from clientes where id = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, cliente.getId());
+            ps.execute();
+
+            conn.commit();
+        } catch(SQLException e) {
+            System.out.println("ERRO: " + e.getMessage());
+
+            if(conn != null){
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    System.out.println("ERRO: " + ex.getMessage());
+                }
+            }
+
+
+        } finally {
+            if( ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    System.out.println("ERRO: " + ex.getMessage());
+                }
+            }
+            if(conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    System.out.println("ERRO: " + ex.getMessage());
+                }
+            }
+        }
+    }    
+    
 }

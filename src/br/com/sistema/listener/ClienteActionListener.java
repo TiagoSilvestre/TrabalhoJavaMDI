@@ -10,11 +10,7 @@ import br.com.sistema.DAO.ClientesDao;
 import br.com.sistema.cadastro.Cliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import trabalhomdi.JInternalFrameClientes;
 
 /**
@@ -24,18 +20,21 @@ import trabalhomdi.JInternalFrameClientes;
 public class ClienteActionListener implements ActionListener{
 
     private final JInternalFrameClientes janelacliente;
-    private Cliente cliente = null;
     
+    public ClienteActionListener(JInternalFrameClientes janela) {
+        this.janelacliente = janela;
+    }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         
         if("salvar".equals(e.getActionCommand())) {
-            this.cliente = janelacliente.getCliente();
+            Cliente cliente = janelacliente.getCliente();
             try{
                 ClientesDao novoCliente = new ClientesDao();
-                novoCliente.insert(this.cliente);
+                novoCliente.insert(cliente);
                 Log.getCurrentInstance().saveInLogFile("salvou um cliente");
+                JOptionPane.showMessageDialog(null, "Cliente salvo com sucesso!");
             } catch (Exception err){
                 System.out.println("Oops, algo deu errado, consulte o arquivo de log para mais detalhes");
                 try {
@@ -53,8 +52,12 @@ public class ClienteActionListener implements ActionListener{
                     + "\nTelefone: " + cliente.getTelefone()
             );
         } else if("excluir".equals(e.getActionCommand())) {
-            if(this.cliente != null){
+            Cliente cliente = janelacliente.getCliente();
+            if(cliente != null){
                 try{
+                    ClientesDao excluirCliente = new ClientesDao();
+                    excluirCliente.delete(cliente);
+                    JOptionPane.showMessageDialog(null, "Cliente excluido!");
                     Log.getCurrentInstance().saveInLogFile("excluiu um cliente");
                 } catch (Exception erro){
                     System.out.println("Oops, algo deu errado, consulte o arquivo de log para mais detalhes");
@@ -64,12 +67,12 @@ public class ClienteActionListener implements ActionListener{
                         System.out.println("Houveram erros: " + ex);
                     }
                 }
-                System.out.print("\n\nExcluindo cadastro de: \n\nId: "+ this.cliente.getId() 
-                        + "\nNome: "+ this.cliente.getNome() 
-                        + "\nNascimento: " + this.cliente.getNascimento()
-                        + "\nCpf: " + this.cliente.getCpf()
-                        + "\nEndereco: " + this.cliente.getEndereco()
-                        + "\nTelefone: " + this.cliente.getTelefone()
+                System.out.print("\n\nExcluindo cadastro de: \n\nId: "+ cliente.getId() 
+                        + "\nNome: "+ cliente.getNome() 
+                        + "\nNascimento: " + cliente.getNascimento()
+                        + "\nCpf: " + cliente.getCpf()
+                        + "\nEndereco: " + cliente.getEndereco()
+                        + "\nTelefone: " + cliente.getTelefone()
                 );
             }else{
                 System.out.print("Nenhum cliente cadastrado");
@@ -77,7 +80,5 @@ public class ClienteActionListener implements ActionListener{
         }
     }
 
-    public ClienteActionListener(JInternalFrameClientes janela) {
-        this.janelacliente = janela;
-    }
+
 }
