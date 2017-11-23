@@ -19,14 +19,19 @@ select * from clientes;
 
 ------------------------------------------------------
 
-CREATE TABLE  ContasParaPagar (
-   descricao varchar(255),
-   valor  varchar(255),
-    vencimento varchar(255),
+CREATE TABLE ContasParaPagar (
+    id varchar(255),
+    descricao varchar(255),
+    valor varchar(255),
+    vencimento varchar(255)
 );
 
+select * from ContasParaPagar 
 
 
+
+
+------------------------------------------------------
 
 CREATE TABLE  Empreendimento (
    id varchar(255),

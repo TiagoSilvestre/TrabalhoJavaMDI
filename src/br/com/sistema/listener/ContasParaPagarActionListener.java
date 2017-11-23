@@ -60,6 +60,9 @@ public class ContasParaPagarActionListener implements ActionListener{
             ContasParaPagar contasParaPagar = janelaContasParaPagar.getContasParaPagar();
             if(contasParaPagar != null){
                 try{
+                    ContasParaPagarDAO excluirContaParaPagarDAO = new ContasParaPagarDAO();
+                    excluirContaParaPagarDAO.delete(contasParaPagar);
+                    JOptionPane.showMessageDialog(null, "Conta excluida!");
                     Log.getCurrentInstance().saveInLogFile("excluiu uma conta para pagar");
                 } catch (IOException erro){
                     System.out.println("Oops, algo deu errado, consulte o arquivo de log para mais detalhes");
@@ -68,13 +71,15 @@ public class ContasParaPagarActionListener implements ActionListener{
                     } catch (Exception ex) {
                         System.out.println("Houveram erros: " + ex);
                     }
+                } catch (Tratamentos ex) {
+                    Logger.getLogger(ContasParaPagarActionListener.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 System.out.print("\n\nExcluindo cadastro de: \n\nDescricao: "+ contasParaPagar.getDescricao() 
                         + "\nValor: "+ contasParaPagar.getValor() 
                         + "\nVencimento: " + contasParaPagar.getVencimento()
                 );
             }else{
-                System.out.print("Nenhum cliente cadastrado");
+                System.out.print("Nenhuma conta cadastrada");
             }
         }
         

@@ -68,7 +68,7 @@ public class ClientesDao {
     public void delete(Cliente cliente) throws Tratamentos {
         Connection conn = null;
         PreparedStatement ps = null;
-        System.out.println("Entrou Delete");
+        
         try {
             conn = Conexao.getConnection();
             String sql = "delete from clientes where id = ?";

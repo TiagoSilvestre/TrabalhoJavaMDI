@@ -65,15 +65,15 @@ public class ContasParaPagarDAO {
         }
     }
     
-    public void delete(Cliente cliente) throws Tratamentos {
+    public void delete(ContasParaPagar contasParaPagar) throws Tratamentos {
         Connection conn = null;
         PreparedStatement ps = null;
-        System.out.println("Entrou Delete");
+        
         try {
             conn = Conexao.getConnection();
             String sql = "delete from ContasParaPagar where id = ?";
             ps = conn.prepareStatement(sql);
-            ps.setString(1, cliente.getId());
+            ps.setString(1, contasParaPagar.getId());
             ps.execute();
 
             conn.commit();
