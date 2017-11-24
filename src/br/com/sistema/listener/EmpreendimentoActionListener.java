@@ -6,9 +6,11 @@
 package br.com.sistema.listener;
 
 import auxiliares.Log;
+import br.com.sistema.DAO.EmpreendimentosDAO;
 import br.com.sistema.cadastro.Empreendimento;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import trabalhomdi.JInternalFrameEmpreendimentos;
 
 /**
@@ -18,7 +20,6 @@ import trabalhomdi.JInternalFrameEmpreendimentos;
 public class EmpreendimentoActionListener  implements ActionListener{
     
     private final JInternalFrameEmpreendimentos janelaemp;
-    Empreendimento emp = null;
 
     public EmpreendimentoActionListener(JInternalFrameEmpreendimentos janela) {
         this.janelaemp = janela;
@@ -27,10 +28,13 @@ public class EmpreendimentoActionListener  implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if("salvar".equals(e.getActionCommand())) {
-            this.emp = janelaemp.getEmp();
+            Empreendimento empreendimento = janelaemp.getEmp();
             
             try{
+                EmpreendimentosDAO novoEmpDAO = new EmpreendimentosDAO();
+                novoEmpDAO.insert(empreendimento);
                 Log.getCurrentInstance().saveInLogFile("salvou um empreendimento");
+                JOptionPane.showMessageDialog(null, "Empreendimento salvo com sucesso!");
             } catch (Exception erro){
                     System.out.println("Oops, algo deu errado, consulte o arquivo de log para mais detalhes");
                     try {
@@ -39,20 +43,24 @@ public class EmpreendimentoActionListener  implements ActionListener{
                         System.out.println("Houveram erros: " + ex);
                     }
             }
-            System.out.print("\nId: "+ emp.getId() 
-                    + "\nTitulo: "+ emp.getTitulo() 
-                    + "\nDescricao: " + emp.getDescricao()
-                    + "\nEndereco: " + emp.getEndereco()
-                    + "\nValor Aluguel: " + emp.getValorAluguel()
-                    + "\nValor Venda: " + emp.getValorVenda()
-                    + "\nContato: " + emp.getContato()
+            System.out.print("\nId: "+ empreendimento.getId() 
+                    + "\nTitulo: "+ empreendimento.getTitulo() 
+                    + "\nDescricao: " + empreendimento.getDescricao()
+                    + "\nEndereco: " + empreendimento.getEndereco()
+                    + "\nValor Aluguel: " + empreendimento.getValorAluguel()
+                    + "\nValor Venda: " + empreendimento.getValorVenda()
+                    + "\nContato: " + empreendimento.getContato()
             );
             
         }
         
         if("excluir".equals(e.getActionCommand())) {
-            if(this.emp != null){
+            Empreendimento empreendimento = janelaemp.getEmp();
+            if(empreendimento != null){
                 try{
+                    EmpreendimentosDAO excluirEmpDAO = new EmpreendimentosDAO();
+                    excluirEmpDAO.delete(empreendimento);
+                    JOptionPane.showMessageDialog(null, "Cliente excluido!");
                     Log.getCurrentInstance().saveInLogFile("excluiu um empreendimento");
                 } catch (Exception erro){
                     System.out.println("Oops, algo deu errado, consulte o arquivo de log para mais detalhes");
@@ -64,13 +72,13 @@ public class EmpreendimentoActionListener  implements ActionListener{
                 }
 
                 System.out.print("\n\nExcluindo cadastro de:" + 
-                        "\n\nId: "+ emp.getId() 
-                        + "\nTitulo: "+ emp.getTitulo() 
-                        + "\nDescricao: " + emp.getDescricao()
-                        + "\nEndereco: " + emp.getEndereco()
-                        + "\nValor Aluguel: " + emp.getValorAluguel()
-                        + "\nValor Venda: " + emp.getValorVenda()
-                        + "\nContato: " + emp.getContato()
+                        "\n\nId: "+ empreendimento.getId() 
+                        + "\nTitulo: "+ empreendimento.getTitulo() 
+                        + "\nDescricao: " + empreendimento.getDescricao()
+                        + "\nEndereco: " + empreendimento.getEndereco()
+                        + "\nValor Aluguel: " + empreendimento.getValorAluguel()
+                        + "\nValor Venda: " + empreendimento.getValorVenda()
+                        + "\nContato: " + empreendimento.getContato()
                 );
             }else{
                 System.out.print("Nenhum empreendimento cadastrado");
